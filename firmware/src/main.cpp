@@ -1,21 +1,38 @@
 #include <Arduino.h>
 #include "config.h"
-#include "eeg_ads1299.h"
+#include "wifi_ble.h"
+#include "ir_sensor.h"
 
-ADS1299Driver eeg(ADS1299_CS);
+TaskHandle_t SensorTaskHandle;
+
+void sensorTask(void *pvParameters) {
+    while (1) {
+        uint32_t irValue = getIRReading();
+        char payload[64];
+        snprintf(payload, sizeof(payload), "{\"ir_val\":%lu}", irValue);
+        sendTelemetryBLE(payload);
+        vTaskDelay(pdMS_TO_TICKS(10)); // 100Hz loop
+    }
+}
 
 void setup() {
     Serial.begin(BAUDRATE);
-    eeg.begin();
-    eeg.startStreaming();
-    Serial.println("MetaShades Hardware Initialized.");
+    initBLE();
+    initIRSensor();
+
+    // Create FreeRTOS task for real-time sensor streaming
+    xTaskCreatePinnedToCore(
+        sensorTask,
+        "SensorTask",
+        4096,
+        NULL,
+        1,
+        &SensorTaskHandle,
+        0
+    );
 }
 
 void loop() {
-    float eegBuffer[4];
-    eeg.readMicrovolts(eegBuffer);
-    
-    // Format JSON Telemetry output over BLE/Serial
-    Serial.printf("{\"eeg_ch1\":%.2f, \"eeg_ch2\":%.2f}\n", eegBuffer[0], eegBuffer[1]);
-    delay(10); // 100Hz sampling loop
+    // Main loop remains lean; tasks handled asynchronously
+    vTaskDelay(pdMS_TO_TICKS(1000));
 }
