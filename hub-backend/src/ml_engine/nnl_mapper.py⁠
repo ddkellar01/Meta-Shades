@@ -1,21 +1,23 @@
 import numpy as np
 
-class NeuralNetworkLanguageMapper:
+class AdvancedNNLMapper:
     """
-    Translates temporal EEG sub-vocal patterns and brainwave feature vectors 
-    into preliminary semantic intent classifications (Neural Network Language / NNL).
+    Maps multi-channel EEG frequency band ratios into high-level cognitive 
+    intents to trigger hands-free eyewear actions.
     """
-    def __init__(self):
-        # Predefined intent categories mapped to neural signatures
-        self.intent_classes = ["COMMAND_QUIET", "QUERY_TIME", "REQUEST_HEALTH_SUMMARY", "TOGGLE_FOCUS"]
-
-    def decode_intent(self, alpha_power: float, beta_power: float, gamma_power: float) -> str:
-        # Heuristic intent classification based on band energy ratios
-        if gamma_power > (beta_power * 1.5):
-            return "REQUEST_HEALTH_SUMMARY"
-        elif beta_power > (alpha_power * 2.0):
-            return "TOGGLE_FOCUS"
-        elif alpha_power > 50.0:
-            return "COMMAND_QUIET"
+    @staticmethod
+    def classify_intent(alpha: float, beta: float, gamma: float, theta: float) -> str:
+        total_power = alpha + beta + gamma + theta + 1e-6
+        
+        # Normalized ratios
+        beta_ratio = beta / total_power
+        gamma_ratio = gamma / total_power
+        
+        if gamma_ratio > 0.35:
+            return "TRIGGER_VISION_ANALYSIS"
+        elif beta_ratio > 0.40:
+            return "TRIGGER_DEEP_FOCUS_MODE"
+        elif alpha / (theta + 1e-6) > 2.0:
+            return "TRIGGER_RELAXATION_AUDIO"
         else:
-            return "QUERY_TIME"
+            return "STANDBY_STATE"
