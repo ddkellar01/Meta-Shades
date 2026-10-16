@@ -1,6 +1,5 @@
-# Edge ML Engine Module Initialization
-from .eeg_processor import EEGProcessor
+from .nn_ml_mapper import AdvancedNN_Mapper
 from .blood_pressure import BloodPressureEstimator
-from .nnl_mapper import AdvancedNNLMapper
+from .eeg import EEGProcessor
 
-__all__ = ["EEGProcessor", "BloodPressureEstimator", "AdvancedNNLMapper"]
+__all__ = ["AdvancedNN_Mapper", "BloodPressureEstimator", "EEGProcessor"]
