@@ -22,12 +22,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest
+        pip install -e .
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         if [ -f hub-backend/requirements.txt ]; then pip install -r hub-backend/requirements.txt; fi
 
     - name: Run Backend Tests
-      env:
-        PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend:${{ github.workspace }}
       run: |
         python -m pytest
