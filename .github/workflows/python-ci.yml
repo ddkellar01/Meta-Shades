@@ -44,3 +44,5 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend
         run: |
           python -m pytest hub-backend/tests -v
+
+PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend
