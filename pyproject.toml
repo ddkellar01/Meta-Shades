@@ -3,35 +3,17 @@ requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "your-backend-project"
+name = "meta-shades-backend"
 version = "0.1.0"
-description = "Backend and ML engine testing environment"
-readme = "README.md"
+description = "Backend service with ML engine"
 requires-python = ">=3.10"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-]
-dependencies = [
-    # Add your runtime dependencies here, e.g.:
-    # "numpy>=1.20.0",
-]
+dependencies = []
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-]
+[tool.setuptools]
+packages = ["ml_engine", "ml_engine.nn"]
 
-# Tells setuptools where to find your packages (matches the root structure seen in your traceback)
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["ml_engine*", "tests*"]
-
-# Pytest configuration to automatically recognize the root directory
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
-testpaths = [
-    "tests",
-]
+testpaths = ["tests"]
 pythonpath = ["."]
