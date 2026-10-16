@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# PlatformIO
+.pio/
+.vscode/
+build/
+
+# IDE / OS specific
+.DS_Store
+*.swp
+*.swo
+models/*.pkl
