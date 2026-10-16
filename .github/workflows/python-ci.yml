@@ -1,33 +1,46 @@
+
 name: Python CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main", "master"]
   pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  build:
+  backend-tests:
+    name: Run Backend Tests
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.10"
-        cache: 'pip'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        if [ -f hub-backend/requirements.txt ]; then pip install -r hub-backend/requirements.txt; fi
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          if [ -f hub-backend/requirements.txt ]; then
+            pip install -r hub-backend/requirements.txt
+          fi
+          pip install pytest
 
-    - name: Run Backend Tests
-      env:
-        PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend:${{ github.workspace }}
-      run: |
-        python -m pytest
+      - name: Verify ML engine import
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend
+        run: |
+          python -c "from ml_engine.blood_pressure import BloodPressureEstimator; print('ML engine import OK')"
+
+      - name: Run backend tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend
+        run: |
+          python -m pytest hub-backend/tests -v
