@@ -1,0 +1,19 @@
+// Meta Shades - Right Temple Arm (Housing I2S DAC Audio & Mic)
+$fn = 60;
+
+module temple_arm_right() {
+    difference() {
+        // Outer Arm Shell
+        cube([140, 12, 8], center=true);
+        
+        // Inner Cavity for DAC & Audio Amps
+        translate([-10, 0, 0])
+            cube([110, 8, 5], center=true);
+            
+        // Acoustic Vent for I2S Microphone
+        translate([40, 0, 4])
+            cylinder(h=4, r=1.5, center=true);
+    }
+}
+
+temple_arm_right();
