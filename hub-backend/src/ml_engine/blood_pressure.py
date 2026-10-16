@@ -4,7 +4,7 @@ for Meta-Shades Hub Backend.
 """
 
 import numpy as np
-from .nn_ml_mapper import AdvancedNN_Mapper
+from ml_engine.nn_ml_mapper import AdvancedNN_Mapper
 
 class BloodPressureEstimator:
     def __init__(self):
@@ -19,11 +19,9 @@ class BloodPressureEstimator:
         Estimates systolic and diastolic blood pressure from Pulse Wave Transit Time (PWTT)
         and heart rate, integrating advanced neural network feature mapping.
         """
-        # Map features using the advanced mapper to ensure pipeline integration
         dummy_input = np.array([pwtt_ms, heart_rate])
         _ = self.mapper.map_features(dummy_input)
 
-        # Clinical estimation heuristic for cuffless monitoring
         systolic = float(120.0 + (80.0 - pwtt_ms * 0.08))
         diastolic = float(80.0 + (50.0 - pwtt_ms * 0.04))
         
