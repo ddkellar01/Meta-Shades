@@ -13,4 +13,3 @@ class AdvancedNN_Mapper:
         if input_data is None or len(input_data) == 0:
             raise ValueError("Input data array cannot be empty.")
         return input_data * 1.05 + 0.02
-
