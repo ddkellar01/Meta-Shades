@@ -1,2 +1,5 @@
-# Meta-Shades
-Meta Shades is an open-source smart eyewear platform bridging hardware and ambient AI. Combining Near-Infrared sub-surface vision, dry-electrode EEG, cuffless blood pressure monitoring, and a hybrid Edge-ML and Cloud-LLM engine (Google Gemini + Alexa), it serves as an all-in-one cognitive and physiological health assistant.
+## 💡 Complete System Workflow
+1. **Sensing**: ESP32-S3 collects NIR optical pulse, cranial EEG microvolts, and ECG timing streams.
+2. **Edge Processing**: Python pipeline calculates real-time Blood Pressure (PWTT) and cognitive focus states at 100Hz.
+3. **Hybrid AI Decision**: Simple commands route to Alexa; complex reasoning and physiological coaching route to **Google Gemini**.
+4. **Action**: Spatial bone-conduction audio delivers instant feedback directly to the user.
