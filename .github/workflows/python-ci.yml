@@ -24,9 +24,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f hub-backend/requirements.txt ]; then pip install -r hub-backend/requirements.txt; fi
 
     - name: Run Backend Tests
       env:
-        PYTHONPATH: src
+        PYTHONPATH: src:hub-backend:.
       run: |
         python -m pytest
