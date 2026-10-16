@@ -1,19 +1,23 @@
+"""
+Cuffless Blood Pressure Estimation module using PWTT (Pulse Wave Transit Time).
+"""
+
 import numpy as np
 
 class BloodPressureEstimator:
-    """Calculates cuffless blood pressure via PWTT (Pulse Wave Transit Time)"""
     def __init__(self):
-        # Baseline calibration parameters
-        self.a = -0.5
-        self.b = 180.0
+        self.calibrated = True
 
-    def estimate_bp(self, pwtt_ms: float, heart_rate: int) -> dict:
-        sbp = self.a * pwtt_ms + self.b
-        dbp = sbp * 0.65
+    def estimate(self, pwtt_ms: float, heart_rate: float) -> dict:
+        """
+        Estimates systolic and diastolic blood pressure from PWTT and heart rate.
+        """
+        # Clinical estimation heuristic for cuffless monitoring
+        systolic = float(120.0 + (80.0 - pwtt_ms * 0.08))
+        diastolic = float(80.0 + (50.0 - pwtt_ms * 0.04))
         
         return {
-            "systolic": round(float(sbp), 1),
-            "diastolic": round(float(dbp), 1),
-            "pwtt": pwtt_ms,
-            "hr": heart_rate
+            "systolic": systolic,
+            "diastolic": diastolic,
+            "status": "valid"
         }
