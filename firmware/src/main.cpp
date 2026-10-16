@@ -1,41 +1,30 @@
 #include <Arduino.h>
-#include "config.h"
-#include "wifi_ble.h"
-#include "ir_sensor.h"
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
 
-TaskHandle_t SensorTaskHandle = NULL;
-
-void sensorTask(void *pvParameters) {
-    while (1) {
-        uint32_t irValue = getIRReading();
-        char payload[64];
-        snprintf(payload, sizeof(payload), "{\"ir_val\":%lu}", irValue);
-        sendTelemetryBLE(payload);
-        vTaskDelay(pdMS_TO_TICKS(10)); // 100Hz loop
-    }
-}
+// Forward declarations for your tasks and functions
+void sensorTask(void *pvParameters);
+void sendTelemetryBLE();
 
 void setup() {
-    Serial.begin(BAUDRATE);
-    delay(1000); // Stabilize serial connection
-    initBLE();
-    initIRSensor();
+    // Initialize serial communication and peripherals
+    Serial.begin(115200);
+    delay(1000);
+    Serial.println("Initializing Meta-Shades Firmware...");
 
-    // Create FreeRTOS task for real-time sensor streaming on Core 0
-    xTaskCreatePinnedToCore(
-        sensorTask,
-        "SensorTask",
-        4096,
-        NULL,
-        1,
-        &SensorTaskHandle,
-        0
+    // Example: Create the FreeRTOS task that was throwing the undefined reference error
+    xTaskCreate(
+        sensorTask,          // Task function
+        "SensorTask",        // Task name
+        4096,                // Stack size (bytes)
+        NULL,                // Parameters
+        1,                   // Task priority
+        NULL                 // Task handle
     );
-    
-    Serial.println("MetaShades Firmware Initialized Successfully.");
 }
 
 void loop() {
-    // Main loop remains lean; tasks handled asynchronously via FreeRTOS
+    // Keep loop empty or handle lightweight periodic tasks 
+    // if your architecture relies primarily on FreeRTOS tasks.
     vTaskDelay(pdMS_TO_TICKS(1000));
 }
