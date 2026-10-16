@@ -1,4 +1,3 @@
-
 name: Python CI
 
 on:
@@ -35,14 +34,12 @@ jobs:
 
       - name: Verify ML engine import
         env:
-          PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend
+          PYTHONPATH: ${{ github.workspace }}/hub-backend/src
         run: |
           python -c "from ml_engine.blood_pressure import BloodPressureEstimator; print('ML engine import OK')"
 
       - name: Run backend tests
         env:
-          PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend
+          PYTHONPATH: ${{ github.workspace }}/hub-backend/src
         run: |
           python -m pytest hub-backend/tests -v
-
-PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend
