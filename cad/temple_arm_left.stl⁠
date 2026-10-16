@@ -1,0 +1,19 @@
+// Meta Shades - Left Temple Arm (Housing ESP32 & LiPo Battery)
+$fn = 60;
+
+module temple_arm_left() {
+    difference() {
+        // Outer Arm Shell
+        cube([140, 12, 8], center=true);
+        
+        // Inner Cavity for ESP32 & Battery
+        translate([-10, 0, 0])
+            cube([110, 8, 5], center=true);
+            
+        // Wire Channel for EEG Electrodes
+        translate([50, 0, 0])
+            cylinder(h=10, r=2, center=true);
+    }
+}
+
+temple_arm_left();
