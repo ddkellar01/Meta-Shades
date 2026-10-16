@@ -3,7 +3,7 @@ uvicorn==0.28.0
 google-genai==1.0.0
 numpy==1.26.4
 scipy==1.12.0
-scikit-learn==1.4.1
+scikit-learn==1.4.2
 pyttsx3==2.90
 opencv-python-headless==4.9.0.80
 websockets==12.0
