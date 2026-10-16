@@ -28,6 +28,6 @@ jobs:
 
     - name: Run Backend Tests
       env:
-        PYTHONPATH: src:hub-backend:.
+        PYTHONPATH: ${{ github.workspace }}/src:${{ github.workspace }}/hub-backend:${{ github.workspace }}
       run: |
         python -m pytest
