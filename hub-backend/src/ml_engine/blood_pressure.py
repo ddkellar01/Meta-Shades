@@ -14,7 +14,7 @@ class BloodPressureEstimator:
         self.mapper = AdvancedNN_Mapper()
         self.calibrated = True
 
-    def estimate(self, pwtt_ms: float, heart_rate: float) -> dict:
+    def estimate_bp(self, pwtt_ms: float, heart_rate: float) -> dict:
         """
         Estimates systolic and diastolic blood pressure from Pulse Wave Transit Time (PWTT)
         and heart rate, integrating advanced neural network feature mapping.
