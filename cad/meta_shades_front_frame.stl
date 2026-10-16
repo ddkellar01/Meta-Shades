@@ -1,0 +1,23 @@
+// Meta Shades - Front Frame Enclosure with Nosepad Mounts
+$fn = 100;
+
+module front_frame_assembly() {
+    difference() {
+        // Main Brow Bar & Rim
+        cube([148, 16, 45], center=true);
+        
+        // Left Eye Socket
+        translate([-36, 0, 0])
+            cylinder(h=50, r=20.5, center=true);
+            
+        // Right Eye Socket
+        translate([36, 0, 0])
+            cylinder(h=50, r=20.5, center=true);
+            
+        // Nosepad NIR Sensor Cavity
+        translate([0, -6, -20])
+            cube([12, 10, 8], center=true);
+    }
+}
+
+front_frame_assembly();
