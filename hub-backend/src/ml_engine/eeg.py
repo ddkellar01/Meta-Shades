@@ -39,3 +39,4 @@ class EEGProcessor:
             "engagement_index": engagement_index,
             "state": "analysis"
         }
+
