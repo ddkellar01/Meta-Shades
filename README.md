@@ -1,8 +1,8 @@
 # Meta Shades 🕶️🧠⚡
 
-[![C/C++ CI](https://github.com/ddlellar01/meta-shades/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/username/meta-shades/actions/workflows/c-cpp.yml)
-[![Docker Image CI](https://github.com/ddkellar01/meta-shades/actions/workflows/docker-image.yml/badge.svg)](https://github.com/username/meta-shades/actions/workflows/docker-image.yml)
-[![Python CI](https://github.com/ddkellar01/meta-shades/actions/workflows/python-ci.yml/badge.svg)](https://github.com/username/meta-shades/actions/workflows/python-ci.yml)
+[![C/C++ CI](https://github.com/ddlellar01/meta-shades/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/ddkellar01/meta-shades/actions/workflows/c-cpp.yml)
+[![Docker Image CI](https://github.com/ddkellar01/meta-shades/actions/workflows/docker-image.yml/badge.svg)](https://github.com/ddkellar01/meta-shades/actions/workflows/docker-image.yml)
+[![Python CI](https://github.com/ddkellar01/meta-shades/actions/workflows/python-ci.yml/badge.svg)](https://github.com/ddkellar01/meta-shades/actions/workflows/python-ci.yml)
 
 ---
 
