@@ -4,6 +4,42 @@
 [![Docker Image CI](https://github.com/ddkellar01/meta-shades/actions/workflows/docker-image.yml/badge.svg)](https://github.com/ddkellar01/meta-shades/actions/workflows/docker-image.yml)
 [![Python CI](https://github.com/ddkellar01/meta-shades/actions/workflows/python-ci.yml/badge.svg)](https://github.com/ddkellar01/meta-shades/actions/workflows/python-ci.yml)
 
+## 🧰 Tech Stack & Architecture
+
+### 💻 Core Programming Languages & Core Systems
+![C++](https://img.shields.io/badge/C%2B%2B-17%2F20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-1.26.4-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-1.12.0-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.9.0-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+
+### ⛓️ Web3 & Infrastructure
+![WebSockets](https://img.shields.io/badge/WebSockets-Async-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
+![Google Gemini AI](https://img.shields.io/badge/Google_Gemini-Multimodal_AI-8E75B2?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Alexa Voice Service](https://img.shields.io/badge/Alexa-Voice_Integration-00CAFF?style=for-the-badge&logo=amazonecho&logoColor=white)
+![BLE](https://img.shields.io/badge/Bluetooth_LE-Telemetry-0082FC?style=for-the-badge&logo=bluetooth&logoColor=white)
+
+### ⚙️ Platform Support & Hardware Architecture
+![ESP32-S3](https://img.shields.io/badge/ESP32--S3-Dual--Core_Xtensa-E7352C?style=for-the-badge&logo=espressif&logoColor=white)
+![FreeRTOS](https://img.shields.io/badge/FreeRTOS-Multitasking-16825D?style=for-the-badge&logo=freertos&logoColor=white)
+![OpenSCAD](https://img.shields.io/badge/OpenSCAD-Parametric_CAD-F9D71C?style=for-the-badge&logo=openscad&logoColor=black)
+![PlatformIO](https://img.shields.io/badge/PlatformIO-Core-F6821F?style=for-the-badge&logo=platformio&logoColor=white)
+
+### ⚡ Low-Level Infrastructure & Performance
+![SPI Bus](https://img.shields.io/badge/SPI-ADS1299_EEG-FF6F00?style=for-the-badge)
+![I2C Bus](https://img.shields.io/badge/I2C-MAX30105_Optical-4169E1?style=for-the-badge)
+![I2S Audio](https://img.shields.io/badge/I2S-Microphone_%26_DAC-2E8B57?style=for-the-badge)
+![Bone Conduction](https://img.shields.io/badge/Audio-Bone_Conduction-9400D3?style=for-the-badge)
+
+### 🛠️ DevOps & Build Tools
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Docker Compose](https://img.shields.io/badge/Docker_Compose-Orchestration-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-Automated_Tests-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+
+
 ---
 
 ## What is this about?
